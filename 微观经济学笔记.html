@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>微观经济学笔记.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%AC%94%E8%AE%B0">微观经济学笔记</h2>
+<p>本文是视频 <a href="https://www.bilibili.com/video/BV1AT4y137Fp?p=47&amp;vd_source=c60cb61eea15ab014a3c1eaccafee02b">微观经济学-中国农业大学</a> 的笔记。由于生成的ppt排版、分页不够美观，极少数latex公式有挂掉的情况，喜欢折腾的同学可以下载markdown文件，并附图片。</p>
+<img src="Newbrush.png">
+<h3 id="12-%E7%BB%8F%E6%B5%8E%E4%B8%8E%E7%BB%8F%E6%B5%8E%E5%AD%A6">1.2 经济与经济学</h3>
+<p>为取得经济品的有代价的活动就是<strong>经济</strong>。</p>
+<p><strong>经济学</strong>是研究人们如何利用<strong>稀缺资源</strong>来满足人们<strong>无限需求</strong>的一门社会科学。</p>
+<ul>
+<li>稀缺：相对稀缺</li>
+<li>短缺：绝对</li>
+<li>需求是无限的：生存（有）、享受（好）、发展（自我）</li>
+</ul>
+<p>经济学：解决资源的稀缺性和需求的无限性之间的矛盾。</p>
+<h3 id="%E7%BB%8F%E6%B5%8E%E7%90%86%E8%AE%BA%E8%AE%A4%E7%9F%A5">经济理论认知</h3>
+<p>经济人假说：理性人、利益追求、个性追求</p>
+<ul>
+<li>消费者：满足最大化</li>
+<li>生产者：利润最大化</li>
+</ul>
+<p>社会人：适应社会、</p>
+<p>信息完备性假说：（。。。）</p>
+<p>表达方法：表格法、图线法、文字描述法、数学函数法</p>
+<p>生产可能曲线：在资源一定的情况下，所能够生产的两种商品的最大组合的运动轨迹。</p>
+<h3 id="%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%9A%84%E7%A0%94%E7%A9%B6%E5%AF%B9%E8%B1%A1">微观经济学的研究对象</h3>
+<p>以价格为核心（价格学、资源稀缺性——价格）、以单个经济单位为研究对象（消费者，生产者）、单个经济单位的经济行为</p>
+<p>说白了就是，解决资源的配置问题。</p>
+<ul>
+<li>生产什么</li>
+<li>生产多少</li>
+<li>为谁生产</li>
+</ul>
+<h3 id="%E6%80%8E%E6%A0%B7%E6%89%8D%E8%83%BD%E5%AD%A6%E5%A5%BD%E7%BB%8F%E6%B5%8E%E5%AD%A6">怎样才能学好经济学</h3>
+<p>两种研究方法：实证分析法、规范分析法</p>
+<ul>
+<li>实证经济学：就事论事（无价值判断）</li>
+<li>规范经济学：就事论理（有价值判断）
+<ul>
+<li>福利经济学</li>
+<li>公共财政学</li>
+<li>税收学</li>
+<li>法律</li>
+</ul>
+</li>
+</ul>
+<h3 id="21-%E6%AC%B2%E6%9C%9B%E4%B8%8E%E9%9C%80%E6%B1%82">2.1 欲望与需求</h3>
+<p>定义：需求是消费者在一定时期内，在一定价格水平上，<strong>愿意购买</strong>且<strong>能够购买</strong>的商品量。</p>
+<ul>
+<li>只满足一个，潜在需求</li>
+<li>满足两个，有效需求
+<ul>
+<li>有效需求=市场容量</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%BD%B1%E5%93%8D%E9%9C%80%E6%B1%82%E7%9A%84%E5%9B%A0%E7%B4%A0">影响需求的因素</h3>
+<p>因素：</p>
+<ul>
+<li>商品本身的价格(P)</li>
+<li>收入水平(I)
+<ul>
+<li>第一类：I增Q增，正常品</li>
+<li>第二类：I增Q减，低档品</li>
+</ul>
+</li>
+<li>偏好
+<ul>
+<li>引导方式：广告、宣传</li>
+</ul>
+</li>
+<li>相关商品的价格
+<ul>
+<li>$P_x$增，$Q_y$降$\rightarrow$互补品</li>
+<li>$P_x$增，$Q_y$增$\rightarrow$替代品</li>
+<li>$P_x$无论增减，$Q_y$不变$\rightarrow$独立品</li>
+</ul>
+</li>
+<li>未来预期
+<ul>
+<li>好：Q增加</li>
+<li>差：Q减少</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E9%9C%80%E6%B1%82%E8%A7%84%E5%BE%8B%E5%8F%8A%E5%85%B6%E8%A1%A8%E8%BE%BE">需求规律及其表达</h3>
+<p>需求规律：在其他条件不变的情况下，消费者对某种商品的需求量与商品本身的价格呈反向变化。</p>
+<p>需求曲线以符号$D$标记。</p>
+<p>$notice$：需求量是表示的是消费者在<strong>一定时间内</strong>的它的需求量。</p>
+<h3 id="%E9%9C%80%E6%B1%82%E8%A7%84%E5%BE%8B%E5%8F%8A%E5%85%B6%E8%A1%A8%E8%BE%BE2">需求规律及其表达（2）</h3>
+<p>需求函数：$Q=f(p,p_x,a,c,...)$</p>
+<ul>
+<li>$p:$本身的价格</li>
+<li>$p_x:$有关商品的价格</li>
+<li>$a:$个人偏好</li>
+<li>$c:$预期</li>
+</ul>
+<p>简化：$Q=f(p)$</p>
+<ul>
+<li>当其他条件不变时，$Q$只是$p$的函数</li>
+</ul>
+<p>$e.g.$
+解释方程$Q=200-5P+2p_x$的含义</p>
+<ul>
+<li>解释：这种商品本身价格提高1单位，需求量减少5单位；$x$的价格提高一单位，需求量增加2单位。这里$x$是替代品。</li>
+</ul>
+<p>市场需求与个人需求：个人需求的加和等于市场。</p>
+<h3 id="%E9%9C%80%E6%B1%82%E8%A7%84%E5%BE%8B%E7%9A%84%E4%BE%8B%E5%A4%96">需求规律的例外</h3>
+<p>情况一：</p>
+<img src="D:\notepic\2dot4case1.png">
+<ul>
+<li>例如：黄金、紧俏物资</li>
+</ul>
+<blockquote>
+<p>无需广告</p>
+</blockquote>
+<p>情况二：</p>
+<img src="D:\notepic\2dot4pic2.png">
+<ul>
+<li>例如：生活必需品(药品、食盐、收费厕所(国外居多；吐槽一下驾照考点外的扫码撒尿服务)、殡葬用品)</li>
+</ul>
+<blockquote>
+<p>提价</p>
+</blockquote>
+<p>情况三：</p>
+<img src="D:\notepic\2dot4pic3.png">
+<ul>
+<li>买涨不买跌</li>
+<li>高档消费品（奢侈品）、非生活必需品</li>
+</ul>
+<blockquote>
+<p>定价宜高</p>
+</blockquote>
+<p>情况四：</p>
+<img src="D:\notepic\2dot4pic4.png">
+<ul>
+<li>金融产品</li>
+</ul>
+<h3 id="%E5%85%B6%E4%BB%96%E5%9B%A0%E7%B4%A0%E5%AF%B9%E9%9C%80%E6%B1%82%E7%9A%84%E5%BD%B1%E5%93%8D">其他因素对需求的影响</h3>
+<p>一、价格与需求</p>
+<img src="D:\notepic\2dot5pic1.png">
+<p>单纯由商品价格本身价格变化引起的需求量的变化，叫做<strong>需求量变动</strong>。</p>
+<p>二、非价格因素对需求的影响</p>
+<p>$I_1\rightarrow I_2$时，$Q_1\rightarrow Q_2\quad$  //需求变动</p>
+<p><strong>需求变动</strong>：非价格因素变化所引起的需求量的变化。</p>
+<img src="D:\notepic\2dot5pic2.png">
+<h3 id="%E4%BA%A7%E9%87%8F%E4%B8%8E%E4%BE%9B%E7%BB%99">产量与供给</h3>
+<p>定义：<strong>供给</strong>是生产者在一定时期内，一定的价格水平上，愿意而且能够提供的商品量。</p>
+<ul>
+<li>供给$\approx$出售愿望+产量
+<ul>
+<li>如果只满足其中之一，称为<strong>潜在供给</strong>。</li>
+<li>两个条件都满足，称为<strong>有效供给</strong>。</li>
+<li>区分有效供给、潜在供给$\rightarrow$衡量生产者的实际收入</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%BD%B1%E5%93%8D%E4%BE%9B%E7%BB%99%E7%9A%84%E5%9B%A0%E7%B4%A0">影响供给的因素</h3>
+<ol>
+<li>本身价格 $\quad P$增，$Q_s$增； $\quad P$减，$Q_s$减</li>
+<li>生产成本 $\quad C$增，$Q_s$减； $\quad C$减，$Q_s$增</li>
+<li>技术</li>
+<li>相关商品的价格</li>
+<li>生产者的目标
+<ul>
+<li>利润最大化</li>
+<li>总产量最大</li>
+<li>平均产量最大</li>
+</ul>
+</li>
+<li>未来预期
+<ul>
+<li>好$\rightarrow Q_s$增</li>
+<li>差$\rightarrow Q_s$减</li>
+</ul>
+</li>
+</ol>
+<h3 id="%E4%BE%9B%E7%BB%99%E8%A7%84%E5%BE%8B%E5%8F%8A%E5%85%B6%E8%A1%A8%E8%BE%BE">供给规律及其表达</h3>
+<p>供给规律：在其他条件不变的情况下，某种商品的供给量与商品本身的价格呈同向变化。</p>
+<p>供给曲线：</p>
+<img src="D:\notepic\2dot8pic1.png">
+<p>供给函数：$Q_s=f(p,p_x,c,t,...)$</p>
+<p>市场供给=个别供给的总和</p>
+<h3 id="%E4%BE%9B%E7%BB%99%E8%A7%84%E5%BE%8B%E7%9A%84%E4%BE%8B%E5%A4%96">供给规律的例外</h3>
+<p>情况一</p>
+<img src="D:\notepic\2dot9pic1.png">
+<p>例如：饮料类、某些公共产品（地铁、自来水、电力）</p>
+<p>情况二：</p>
+<img src="D:\notepic\2dot9pic2.png">
+<p>例如：土地、古玩古董</p>
+<p>情况三：</p>
+<img src="D:\notepic\2dot9pic3.png">
+<p>举例：流水线作业的、大规模生产的</p>
+<p>情况四：</p>
+<img src="D:\notepic\2dot9pic4.png">
+<p>例如：劳动力（在上图中，$L$表示提供的劳动量，$W$表示工资）</p>
+<h3 id="%E5%85%B6%E4%BB%96%E5%9B%A0%E7%B4%A0%E5%AF%B9%E4%BE%9B%E7%BB%99%E7%9A%84%E5%BD%B1%E5%93%8D">其他因素对供给的影响</h3>
+<p>供给量变动：</p>
+<img src="D:\notepic\2dot10pic1.png">
+<p><strong>供给变动</strong>：非价格变化引起的</p>
+<img src="D:\notepic\2dot10pic2.png">
+<h3 id="%E5%B8%82%E5%9C%BA%E5%9D%87%E8%A1%A1%E5%8F%8A%E5%85%B6%E5%BD%A2%E6%88%90">市场均衡及其形成</h3>
+<p>均衡状态：供求力量对比的结果</p>
+<img src="D:\notepic\2dot11pic1.png">
+<p>定义：当需求和供给相等的时候，这个状态叫均衡状态，此时的价格叫均衡价格$(P_e)$，此时的数量叫均衡数量$(Q_e)$。</p>
+<img src="D:\notepic\2dot11pic2.png">
+<h3 id="%E5%B8%82%E5%9C%BA%E5%9D%87%E8%A1%A1%E7%9A%84%E5%8F%98%E5%8A%A8">市场均衡的变动</h3>
+<p>一、消费者与均衡的问题</p>
+<img src="D:\notepic\2dot12pic1.png">
+<p>总结：单纯需求变动会引起均衡价格和均衡数量同向变化。</p>
+<p>二、生产者与均衡的问题</p>
+<img src="D:\notepic\2dot12pic2.png">
+<p>供给变动：均衡价格反向变化；均衡数量同向变化。</p>
+<p>三、消费者和生产者行为都在变引起的变化</p>
+<img src="D:\notepic\2dot12pic3.png">
+<p>（其他情况的分析方法与之类似。。。）</p>
+<h3 id="%E6%94%AF%E6%8C%81%E4%BB%B7%E6%A0%BC%E4%B8%8E%E9%99%90%E5%88%B6%E4%BB%B7%E6%A0%BC">支持价格与限制价格</h3>
+<p>$notion:\quad$工农业产品的剪刀差</p>
+<img src="D:\notepic\2dot13pic1.png">
+<p>$definition:\quad$支持价格，政府制定的高于市场均衡价格的最低销售价格。</p>
+<img src="D:\notepic\2dot13pic2.png">
+<p>方法：政府收购多余商品。</p>
+<p>$definition:\quad$限制价格，低于市场均衡价格的最高销售价。</p>
+<img src="D:\notepic\2dot13pic3.png">
+<p>限制价格可能导致的市场现象：黑市、贿赂等。应对方法：凭票供应。</p>
+<h3 id="%E6%94%BF%E5%BA%9C%E7%A8%8E%E6%94%B6">政府税收</h3>
+<p>$notion:$</p>
+<ul>
+<li>消费者剩余，消费者从市场里面的得益。</li>
+<li>生产者剩余，生产者从市场里面的得益。</li>
+</ul>
+<img src="D:\notepic\2dot14pic1.png">
+<p>国家收的税：$E_1A$</p>
+<img src="D:\notepic\2dot14pic2.png">
+<p>设$A$点对应价格为$P_2$。$P_0P_1$=消费者税负，$P_0P_2$=生产者税负</p>
+<img src="D:\notepic\2dot14pic3.png">
+<h3 id="%E6%94%BF%E5%BA%9C%E8%A1%A5%E8%B4%B4">政府补贴</h3>
+<img src="D:\notepic\2dot15pic1.png">
+<img src="D:\notepic\2dot15pic2.png">
+<h3 id="31-%E9%9C%80%E6%B1%82%E4%BB%B7%E6%A0%BC%E5%BC%B9%E6%80%A7%E5%8F%8A%E5%85%B6%E8%AE%A1%E7%AE%971">3.1 需求价格弹性及其计算（1）</h3>
+<p>一、弹性</p>
+<p>$$e=\frac{\frac{\Delta Y}{Y}}{\frac{\Delta X}{X}}$$</p>
+<p>二、需求价格弹性</p>
+<p>$$e=\frac{\Delta Q/Q}{\Delta P/P}$$</p>
+<p>$definition:\quad$价格变动$1%$引起的需求量变动的百分比</p>
+<p>$notice:\quad$在一个正常的需求曲线的计算中，为方便$(?)$起见，在公式中加一个负号，则$e$变为正。公式如下：</p>
+<p>$$e=-\frac{\Delta Q/Q}{\Delta P/P}$$</p>
+<h3 id="%E9%9C%80%E6%B1%82%E4%BB%B7%E6%A0%BC%E5%BC%B9%E6%80%A7%E5%8F%8A%E5%85%B6%E8%AE%A1%E7%AE%972">需求价格弹性及其计算（2）</h3>
+<p>一、点弹性</p>
+<p>$$e=-\frac{\Delta Q/Q}{\Delta P/P}=-\frac{\Delta Q}{\Delta P}\cdot \frac{P}{Q}=-\frac{\Delta Q}{\Delta P}\cdot \frac{P_1}{Q_1}$$</p>
+<p>精确计算：</p>
+<p>$$e=-\lim_{\Delta P \to 0} \frac{\Delta Q}{\Delta P}\cdot \frac{P}{Q}=-\frac{P}{Q}\cdot \frac{\mathrm{d}Q}{\mathrm{d}P}$$</p>
+<p>二、弧弹性</p>
+<p>$$e=-\frac{\Delta Q}{\Delta P}\cdot \frac{P}{Q}=-\frac{\Delta Q}{\Delta P}\cdot \frac{\frac{P_1+P_2}{2}}{\frac{Q_1+Q_2}{2}}$$</p>
+<h3 id="%E9%9C%80%E6%B1%82%E4%BB%B7%E6%A0%BC%E5%BC%B9%E6%80%A7%E7%9A%84%E7%B1%BB%E5%9E%8B">需求价格弹性的类型</h3>
+<p>情况一：</p>
+<img src="D:\notepic\3dot2pic1.png">
+<p>情况二：</p>
+<img src="D:\notepic\3dot2pic2.png">
+<p>情况三：</p>
+<img src="D:\notepic\3dot2pic3.png">
+<p>例如：接近于生活必需品的</p>
+<p>其他情况：</p>
+<img src="D:\notepic\3dot2pic4.png">
+<p><strong>总结：</strong></p>
+<img src="D:\notepic\3dot2pic5.png">
+<p>$notice:\quad$同一种商品在不同价位上有不同的弹性值。高价位富有弹性，低价位缺乏弹性。</p>
+<h3 id="%E5%BD%B1%E5%93%8D%E9%9C%80%E6%B1%82%E4%BB%B7%E6%A0%BC%E5%BC%B9%E6%80%A7%E7%9A%84%E5%9B%A0%E7%B4%A0">影响需求价格弹性的因素</h3>
+<p>一、商品本身被需要的程度</p>
+<ul>
+<li>越被需要，弹性越小</li>
+<li>越不需要，弹性越大</li>
+</ul>
+<p>二、本身被替代的程度</p>
+<ul>
+<li>易被替代，弹性越大</li>
+</ul>
+<p>三、商品本身占总支出的比重</p>
+<ul>
+<li>比重大$\rightarrow$弹性大</li>
+</ul>
+<p>四、商品的用途的多少</p>
+<ul>
+<li>用途越多，弹性越大</li>
+</ul>
+<p>五、商品的种类的大小</p>
+<ul>
+<li>种类越大，弹性越小</li>
+</ul>
+<p>种类的含义如下图：</p>
+<img src="D:\notepic\3dot3pic1.png">
+<p><strong>解释</strong>：种类越小，越容易被替代，弹性就大了。</p>
+<p>六、时间因素</p>
+<ul>
+<li>近期弹性小</li>
+<li>远期弹性大</li>
+</ul>
+<p>解释：近期可能没有替代品；长期可能因为技术进步等原因，出现替代品。</p>
+<h3 id="%E9%9C%80%E6%B1%82%E4%BB%B7%E6%A0%BC%E5%BC%B9%E6%80%A7%E7%9A%84%E7%94%A8%E9%80%94">需求价格弹性的用途</h3>
+<ul>
+<li>大件$\rightarrow$价格特别关心$\rightarrow$弹性大</li>
+</ul>
+<p>总结：通过人们对价格的关心程度来判断。</p>
+<ul>
+<li>需求价格弹性就是帮助企业进行定价的</li>
+<li>总收益（TR）=P$\cdot$Q</li>
+</ul>
+<img src="D:\notepic\3dot4pic1.png">
+<p><strong>富有弹性，定低价。</strong></p>
+<img src="D:\notepic\3dot4pic2.png">
+<p><strong>缺乏弹性，定高价。</strong></p>
+<h3 id="%E9%9C%80%E6%B1%82%E6%94%B6%E5%85%A5%E5%BC%B9%E6%80%A7">需求收入弹性</h3>
+<p>$definition:\quad$消费者的收入变化1%所引起的商品需求量的变动百分比。</p>
+<p>$$e_I=\frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}$$</p>
+<p>$notion:\quad$公式前<strong>没有负号</strong></p>
+<ul>
+<li>$e_I&gt;0$，正常品
+<ul>
+<li>$0&lt; e_I&lt;1$，必需品</li>
+<li>$e_I&gt;1$，高档品</li>
+</ul>
+</li>
+<li>$e_I&lt;0$，低档品</li>
+</ul>
+<p>通过$e_I$判断生活水平的高低：</p>
+<img src="D:\notepic\3dot5pic1.png">
+<h3 id="%E9%9C%80%E6%B1%82%E4%BA%A4%E5%8F%89%E5%BC%B9%E6%80%A7">需求交叉弹性</h3>
+<p>$$e_{yx}=\frac{\frac{\Delta Q_y}{Q_y}}{\frac{\Delta P_x}{P_x}}$$</p>
+<p>$e_{yx}:\quad x$的价格变化引起的$y$的需求量的改变。</p>
+<p>$notion:\quad$前面<strong>没有负号</strong>。</p>
+<img src="D:\notepic\3dot6pic1.png">
+<p>通过需求交叉弹性帮助企业调整产业结构、产品结构：</p>
+<img src="D:\notepic\3dot6pic2.png">
+<h3 id="%E4%BE%9B%E7%BB%99%E5%BC%B9%E6%80%A7%E5%8F%8A%E5%85%B6%E7%B1%BB%E5%9E%8B">供给弹性及其类型</h3>
+<p>$definition:\quad$供给弹性，商品的价格变化引起的供给量的变化。</p>
+<p>$$e_s=\frac{\frac{\Delta Q_s}{Q_s}}{\frac{\Delta P}{P}}$$</p>
+<p>$notice:\quad$<strong>没有负号</strong></p>
+<p>含义：价格变化1%引起的供给量的变动百分比</p>
+<p>$notice:\quad$有和之前相似的<strong>点弹性</strong>、<strong>弧弹性</strong>概念</p>
+<p>类型一：$\quad e_s=\infty \quad$完全有弹性</p>
+<img src="D:\notepic\3dot7pic1.png">
+<p>类型二：$\quad e_s=0\quad$完全无弹性</p>
+<img src="D:\notepic\3dot7pic2.png">
+<p>类型三：$\quad e_s=1\quad$单位弹性</p>
+<p>类型四：$\quad e_s&lt;1\quad$缺乏弹性</p>
+<p>类型五：$\quad e_s&gt;1\quad$富有弹性</p>
+<img src="D:\notepic\3dot7pic3.png">
+<blockquote>
+<p>影响大的弹性大，影响小的弹性小</p>
+</blockquote>
+<h3 id="%E5%BD%B1%E5%93%8D%E4%BE%9B%E7%BB%99%E5%BC%B9%E6%80%A7%E5%A4%A7%E5%B0%8F%E7%9A%84%E5%9B%A0%E7%B4%A0">影响供给弹性大小的因素</h3>
+<ul>
+<li>生产的难易程度（难$\rightarrow e_s$小）</li>
+<li>生产成本增加幅度的大小（成本增加的幅度大$\rightarrow e_s$小）</li>
+<li>生产规模的大小（规模大的供给弹性小）</li>
+<li>派生供给的难易程度（易$\rightarrow e_s$大）
+<ul>
+<li>$definition:$ 派生供给：对生产最终产品的原材料、机器设备、半成品和燃料等中间产品的供给。</li>
+</ul>
+</li>
+<li>时间因素（现在$e_s$小，将来$e_s$大）</li>
+</ul>
+<h3 id="41-%E6%AC%B2%E6%9C%9B%E4%B8%8E%E6%95%88%E7%94%A8">4.1 欲望与效用</h3>
+<p>效用是一种对欲望的满足程度。</p>
+<p>效用的大小和个人的经济条件是有关的。</p>
+<h3 id="%E8%BE%B9%E9%99%85%E6%95%88%E7%94%A8%E9%80%92%E5%87%8F%E8%A7%84%E5%BE%8B">边际效用递减规律</h3>
+<p>总效用（total utility）：消费一定量的物品获得的总满足程度</p>
+<p>边际效用（marginal utility)：多消费一个单位的商品增加的效用值</p>
+<p>$$MU=\frac{\Delta TU}{\Delta Q}\quad MU=\frac{\mathrm{d}TU}{\mathrm{d}Q}$$</p>
+<p>解释：增加的消费量引起的总效用的该变量。即：多消费一个产品获得的满足程度。</p>
+<blockquote>
+<p>满足与消费量有关。</p>
+</blockquote>
+<p>边际效用的加和等于总效用 $TU_x=\begin{matrix} \sum_{i=1}^n MU_{xi} \end{matrix}$</p>
+<p><strong>边际效用递减规律</strong>：随着消费量的不断增加，后一单位的边际效用小于前一单位的边际效用。</p>
+<h3 id="%E6%B6%88%E8%B4%B9%E8%80%85%E6%9C%80%E4%BD%B3%E5%86%B3%E7%AD%96">消费者最佳决策</h3>
+<p>一、为什么要进行消费决策？</p>
+<ul>
+<li>收入是有限的</li>
+<li>时间是有限的</li>
+<li>商品是有限的</li>
+<li>价格是变化的</li>
+</ul>
+<p>二、货币效应</p>
+<p>$$一元钱的边际效用=\frac{一单位的边际效用}{商品价格}$$</p>
+<img src="D:\notepic\4dot3pic1.png">
+<img src="D:\notepic\4dot3pic2.png">
+<p>总结：</p>
+<p>$$\begin{cases}
+\frac{MU_x}{P_x}=\frac{MU_y}{P_y}(最佳条件)\
+P_x\cdot X+P_y\cdot Y=I(约束条件)
+\end{cases}$$</p>
+<h3 id="%E6%B6%88%E8%B4%B9%E8%80%85%E5%89%A9%E4%BD%99">消费者剩余</h3>
+<p>消费者剩余=愿意支付的货币-实际支付的货币</p>
+<ul>
+<li>愿意支付是根据边际效用的大小来决定的。</li>
+</ul>
+<img src="D:\notepic\4dot4pic1.png">
+<p>启示：</p>
+<ul>
+<li>政府要维持物价水平</li>
+<li>说明发展市场经济是有好处的
+<ul>
+<li>市场越发达，剩余越多</li>
+</ul>
+</li>
+<li>剩余是存在的</li>
+</ul>
+<h3 id="%E6%B6%88%E8%B4%B9%E8%80%85%E5%81%8F%E5%A5%BD%E5%81%87%E8%AE%BE%E4%B8%8E%E6%97%A0%E5%B7%AE%E5%BC%82%E6%9B%B2%E7%BA%BF">消费者偏好假设与无差异曲线</h3>
+<p>消费者偏好：消费者对商品的喜好程度。</p>
+<blockquote>
+<p>消费的是商品的组合。</p>
+</blockquote>
+<p><strong>三个假设：</strong></p>
+<ol>
+<li>完全性$(completeness)$：消费者在不同的组合中能够区分(tell)，自己更偏向(喜欢)哪个组合</li>
+<li>传递性$(transitivity)$：$a&gt;b,b&gt;c\Rightarrow a&gt;c$</li>
+<li>非饱和性：两个不同的组合，消费者总是喜欢数量大的组合</li>
+</ol>
+<p>无差异曲线（等效用曲线）：</p>
+<img src="D:\notepic\4dot5pic1.png">
+<p>$definition:\quad$能够获得相同满足的两种商品的各种组合的运动轨迹，叫做<strong>无差异曲线</strong>。</p>
+<p>特点：</p>
+<ul>
+<li>无数条。每一条无差异曲线代表唯一的效用水平；位置越高的线代表的效用水平越大。</li>
+<li>任意两条无差异曲线不相交。</li>
+<li>无差异曲线凸向原点。</li>
+</ul>
+<p>一些特例：</p>
+<img src="D:\notepic\4dot5pic2.png">
+<img src="D:\notepic\4dot5pic3.png">
+<h3 id="%E9%A2%84%E7%AE%97%E7%BA%A6%E6%9D%9F%E7%BA%BF">预算约束线</h3>
+<p>$definition\quad$<strong>预算约束线</strong>：在收入一定的情况下，消费者所能购买的两种商品的<strong>最大</strong>组合的运动轨迹。</p>
+<img src="D:\notepic\4dot6pic1.png">
+<p>影响因素：</p>
+<ul>
+<li>收入$I$</li>
+<li>价格</li>
+</ul>
+<img src="D:\notepic\4dot6pic2.png">
+<p>边际替代率：$MRS_{xy}=\frac{\Delta Y}{\Delta X}$</p>
+<ul>
+<li>指标越大，说明替代越容易</li>
+<li>指标越小，说明替代越难</li>
+<li>边际替代率递减</li>
+</ul>
+<img src="D:\notepic\4dot6pic3.png">
+<p>证明：</p>
+<img src="D:\notepic\4dot6pic4.png">
+<h3 id="%E6%B6%88%E8%B4%B9%E8%80%85%E5%9D%87%E8%A1%A1">消费者均衡</h3>
+<p>消费者最佳选择问题又称<strong>消费者均衡</strong>。</p>
+<img src="4dot7pic1.png">
+<p>$definition\quad$ 在收入一定情况下，消费者所买到的能够使效用最大的商品组合，就叫做<strong>消费者均衡</strong>。</p>
+<p>E点的条件：（其中包含一些简单的推导，如果忘记不会可以看视频）</p>
+<img src="4dot7pic2.png">
+<p>（和之前用表格推的那节课道理一样）</p>
+<p>$$\begin{cases}
+\frac{MU_x}{P_x}=\frac{MU_y}{P_y}(均衡条件)\
+P_x\cdot X+P_y\cdot Y=I(约束条件)
+\end{cases}$$</p>
+<h3 id="%E6%B6%88%E8%B4%B9%E8%80%85%E5%9D%87%E8%A1%A1%E7%9A%84%E5%8F%98%E5%8A%A8">消费者均衡的变动</h3>
+<p>一、收入变动对消费者均衡的影响</p>
+<img src="4dot8pic1.png">
+<p>$definition\quad$ 收入改变引起的消费者的均衡变动的运动轨迹叫做<strong>收入——消费线</strong>。</p>
+<p><strong>恩格尔曲线：</strong></p>
+<img src="4dot8pic2.png">
+<p>二、价格变动对消费者均衡的影响</p>
+<p>研究的假设：$I_0,P_y$ 不变，$P_x$ 变化</p>
+<img src="4dot8pic3.png">
+<p>$definition\quad$ 收入不变的情况下，由于价格变化所引起的消费者的均衡位置的移动轨迹，就是<strong>价格消费曲线</strong>。</p>
+<img src="4dot8pic4.png">
+<h3 id="%E6%9B%BF%E4%BB%A3%E6%95%88%E5%BA%94%E4%B8%8E%E6%94%B6%E5%85%A5%E6%95%88%E5%BA%94">替代效应与收入效应</h3>
+<img src="4dot9pic1.png">
+<p>$definition\quad$ 相对价格的变化导致了产品的替代，影响了消费者的需求，叫<strong>替代效应</strong>。</p>
+<p>$definition\quad$ 由于价格变化导致了实际收入的改变，引起了消费者需求改变，叫<strong>收入效应</strong>。</p>
+<p>总效应=替代效应+收入效应</p>
+<p>向政府提供建议：</p>
+<ul>
+<li>替代效应&lt;收入效应：要提高收入</li>
+<li>替代效应&gt;收入效应：调整比价关系</li>
+</ul>
+<h3 id="51-%E7%94%9F%E4%BA%A7%E4%B8%8E%E7%94%9F%E4%BA%A7%E5%87%BD%E6%95%B0">5.1 生产与生产函数</h3>
+<p><strong>生产</strong>就是将投入要素转化为产出的活动。</p>
+<p>生产要素：劳动、土地、资本、才能</p>
+<p>产出：有形产品——实体、无形产品——劳务（第三产业）</p>
+<p>$definition\quad$ <strong>生产函数：</strong> 在一定时期内，在技术水平不变的情况下，生产中所使用的各种生产要素与所能生产的最大产量之间的关系。</p>
+<p>$$Q=f(L,K,D)$$</p>
+<blockquote>
+<p>L劳动、K资本、D土地</p>
+</blockquote>
+<p><strong>柯布$\cdot$道格拉斯生产函数</strong></p>
+<p>$$Q=AL^{\alpha}K^{\beta}$$</p>
+<p>A：技术进步因素（所有的其他说不清楚的影响因素的集合）</p>
+<p><strong>不变要素和可变要素</strong>：</p>
+<ul>
+<li>不变要素（variable input）：不随着产量变化而变化的要素</li>
+<li>可变要素（fixed input）：随着产量变化而变化的要素</li>
+</ul>
+<p><strong>短期生产和长期生产</strong>：</p>
+<ul>
+<li>短期生产（short run）：在这个时期内，至少有一种不变要素的生产</li>
+<li>长期生产（long run）：在这个时期内，所有要素都是可变的</li>
+</ul>
+<h3 id="%E7%9F%AD%E6%9C%9F%E7%94%9F%E4%BA%A7%E5%88%86%E6%9E%90">短期生产分析</h3>
+<p>$$Q=f(L,K_0)$$</p>
+<blockquote>
+<p>资本要素不变</p>
+</blockquote>
+<p><strong>三个产量指标：</strong></p>
+<ol>
+<li>总产量（Total Product of Labor)
+$TP_L=Q$</li>
+<li>平均产量（Average Product of Labor）
+$AP_L=TP_L/L$</li>
+<li>边际产量（Marginal Product of Labor）
+$MP_L=\frac{\Delta TP_L}{\Delta L}=\frac{\Delta Q}{\Delta L}$</li>
+</ol>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot2pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">产量之间的关系</div>
+</center>
+<p>结论：</p>
+<ul>
+<li>这三条线都有一个最高点</li>
+<li>当$MP_L=0$时，$TP_L$最大
+<ul>
+<li>总产量等于边际产量的加和（其实就是数学上的求导和积分QAQ）</li>
+</ul>
+</li>
+<li>当$MP_L$与$AP_L$相交时，$AP_L$最大</li>
+</ul>
+<p><strong>边际报酬递减规律：</strong></p>
+<p>$definition\quad$ 在其他条件不变的情况下，单纯增加一种可变要素的使用量，一开始产量以递增的速度增长，然后以递减的速度增长，再继续增加该种要素的使用量，产量就会绝对的减产。这种现象称为边际报酬递减规律。</p>
+<h3 id="%E7%94%9F%E4%BA%A7%E7%9A%84%E5%90%88%E7%90%86%E9%98%B6%E6%AE%B5">生产的合理阶段</h3>
+<p>第二阶段是合理阶段。</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot3pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">生产的三个阶段</div>
+</center>
+<p>第一阶段可能存在设备的闲置问题。</p>
+<p>具体如何选定第二阶段的$L$值，与生产者的目标有关：</p>
+<ul>
+<li>平均产量最大</li>
+<li>总产量最大</li>
+</ul>
+<p><strong>管理方法：</strong></p>
+<ul>
+<li>第一阶段：开拓市场</li>
+<li>第二阶段：合理阶段</li>
+<li>第三阶段：劳动过剩，浮于事，裁员</li>
+</ul>
+<h3 id="%E7%94%9F%E4%BA%A7%E5%86%B3%E7%AD%96%E7%9A%84%E5%B7%A5%E5%85%B7">生产决策的工具</h3>
+<p>$$Q=f(L,K)$$</p>
+<p><strong>决策工具——等产量线</strong></p>
+<p>生产同样的产量，可以采取不同的要素组合。</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot4pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">等产量线</div>
+</center>
+<p>$definition\quad$<strong>等产量线</strong>$\quad$ 能够取得相同产量的两种要素的组合的运动轨迹</p>
+<p>特征：</p>
+<ul>
+<li>有无数条等产量曲线，位置越高，产量水平越高</li>
+<li>任意两条等产量曲线不相交</li>
+<li>凸向原点</li>
+</ul>
+<p><strong>决策工具——等成本线</strong></p>
+<p>$$C_0=P_L\cdot L+P_K\cdot K$$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot4pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>$definition\quad$等成本线$\quad$ 在成本一定的情况下，企业所能购买的两种要素的最大组合的运动轨迹</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot4pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<h3 id="%E7%94%9F%E4%BA%A7%E7%9A%84%E5%90%88%E7%90%86%E5%8C%BA%E5%9F%9F1">生产的合理区域（1）</h3>
+<p>$$MRTS_{LK}=\frac{\Delta K}{\Delta L}$$</p>
+<blockquote>
+<p>T：边际技术替代率
+LK：劳动对资本替代
+左式读作：“劳动对资本的边际技术替代率”</p>
+</blockquote>
+<p>$$\Delta Q=0=\Delta TP_L+\Delta TP_K$$</p>
+<p>$$0=MP_L\cdot \Delta L+MP_K\cdot \Delta K$$</p>
+<p>$$MRTS_{LK}=-\frac{\Delta K}{\Delta L}=\frac{MP_L}{MP_K}$$</p>
+<blockquote>
+<p>为方便起见，在前面加个负号。（搞不懂哪里方便了QAQ）</p>
+</blockquote>
+<p>$MP_L$下降，$MP_K$增加，所以$MRTS_{LK}$下降</p>
+<p>结论：要素之间的替代是有限的</p>
+<h3 id="%E7%94%9F%E4%BA%A7%E7%9A%84%E5%90%88%E7%90%86%E5%8C%BA%E5%9F%9F2">生产的合理区域（2）</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot5pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot5pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<h3 id="%E7%94%9F%E4%BA%A7%E8%80%85%E7%9A%84%E6%9C%80%E4%BD%B3%E5%86%B3%E7%AD%96">生产者的最佳决策</h3>
+<p><strong>成本一定，产量决策：</strong></p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot6pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p><strong>产量一定，成本决策：</strong></p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot6pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot6pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">简要证明</div>
+</center>
+<blockquote>
+<p>这里的最佳决策也可以称为<strong>生产者均衡</strong>。</p>
+</blockquote>
+<h3 id="%E7%94%9F%E4%BA%A7%E6%89%A9%E5%B1%95%E7%BA%BF">生产扩展线</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot7pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">生产扩展线：生产均衡点的运动轨迹</div>
+</center>
+<p>不同企业类型划分：</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot7pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>生产扩展线方程：</p>
+<p>$$\frac{MP_L}{P_L}=\frac{MP_K}{P_K}$$</p>
+<p>为什么有些国家（企业）采取资本密集型，有些国家（企业）采取劳动密集型：</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot7pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<h3 id="%E8%A7%84%E6%A8%A1%E7%BB%8F%E6%B5%8E">规模经济</h3>
+<p>$definition\quad$规模经济$\quad$在一个生产过程当中，当所有的要素按照相同的倍数增加的时候，所表现出的产出的变化特征</p>
+<p><strong>规模经济的三种形式（三个阶段）：</strong></p>
+<ol>
+<li>规模报酬递增</li>
+<li>规模报酬不变</li>
+<li>规模报酬递减</li>
+</ol>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="5dot8pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">特殊情况</div>
+</center>
+<p>规模报酬递增的原因</p>
+<ol>
+<li>生产专门化</li>
+<li>管理专门化</li>
+<li>几何因素（重工业等）</li>
+<li>便利条件</li>
+</ol>
+<p>规模报酬不变的原因：</p>
+<ul>
+<li>规模报酬递增的因素吸收完了，受到某种技术的限制</li>
+</ul>
+<p>规模报酬递减的原因：</p>
+<ul>
+<li>管理效率低下</li>
+</ul>
+<h3 id="61-%E5%A4%9A%E8%A7%92%E5%BA%A6%E7%9A%84%E6%88%90%E6%9C%AC">6.1 多角度的成本</h3>
+<p>在生产过程中实际发生的支出，为显性成本；在生产过程中经营者主观上感觉到的损失，为隐性成本。</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot1pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>$definiton\quad$ 当一种资源有多种用途时，生产者选择了收益最大的用途后，必然放弃的该资源用于其他用途所可能获得的最大收益，就是<strong>生产这种产品的机会成本</strong>。</p>
+<p>经济成本=会计成本+机会成本</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot1pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<h3 id="%E7%9F%AD%E6%9C%9F%E6%88%90%E6%9C%AC%E5%88%86%E6%9E%90">短期成本分析</h3>
+<p>成本函数 $C=f(Q)$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot2pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">成本和产量的一一对应关系</div>
+</center>
+<p>短期总成本=短期固定成本(不变要素的花费)+短期可变成本(可变要素的花费)</p>
+<p>$$STC=TFC+TVC$$</p>
+<p>或（明确特指短期成本）：</p>
+<p>$$TC=TFC+TVC$$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot2pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot2pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">平均成本</div>
+</center>
+<h3 id="%E8%BE%B9%E9%99%85%E6%88%90%E6%9C%AC%E5%88%86%E6%9E%90">边际成本分析</h3>
+<p>$$MC=\frac{\Delta TC}{\Delta Q}$$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot3pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">边际成本</div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot3pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot3pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">规律</div>
+</center>
+<p>证明思路：</p>
+<p>在AVC的最低点，有：</p>
+<p>$$AVC'=(\frac{TVC}{Q})'=0$$</p>
+<p>$$TVC'\cdot Q=TVC\cdot Q'$$</p>
+<p>$$\frac{TVC}{Q}=\frac{TVC'}{Q'}=\frac{\mathrm{d}TVC}{\mathrm{d}Q}$$</p>
+<p>$$AVC=MC$$</p>
+<h3 id="%E9%95%BF%E6%9C%9F%E6%80%BB%E6%88%90%E6%9C%AC%E5%88%86%E6%9E%90">长期总成本分析</h3>
+<p>规模与成本</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot4pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot4pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">短期总成本曲线位于LTC曲线的上方</div>
+</center>
+<h3 id="%E9%95%BF%E6%9C%9F%E5%B9%B3%E5%9D%87%E6%88%90%E6%9C%AC%E4%B8%8E%E9%95%BF%E6%9C%9F%E8%BE%B9%E9%99%85%E6%88%90%E6%9C%AC1">长期平均成本与长期边际成本（1）</h3>
+<p>长期平均成本（LAC） $\quad$ 长期边际成本（LMC）</p>
+<p>$$LAC=\frac{LTC}{Q}$$</p>
+<pre class="hljs"><code><div><span class="hljs-comment">//视频此处有图画错了</span>
+<span class="hljs-comment">//本笔记中只放正确的</span>
+</div></code></pre>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot5pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">LAC是SAC的包络线</div>
+</center>
+<h3 id="%E9%95%BF%E6%9C%9F%E5%B9%B3%E5%9D%87%E6%88%90%E6%9C%AC%E4%B8%8E%E9%95%BF%E6%9C%9F%E8%BE%B9%E9%99%85%E6%88%90%E6%9C%AC2">长期平均成本与长期边际成本（2）</h3>
+<p>$$LMC=\frac{\Delta LTC}{\Delta Q}$$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot5pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">LMC是一条U形的曲线，通过LAC最低点</div>
+</center>
+<p><strong>在SAC和LAC决定的这个产量水平上，SMC=LMC</strong></p>
+<blockquote>
+<p>从导数的角度去理解这块内容：STC的导数是SMC，LTC的导数是LMC，LTC是STC的包络线。对于任意一个给定资本规模的STC（当然也可以是给定labor规模的STC，只不过老师的视频中一直以给定资本规模为例），它和LTC在两者的切点处导数值相同。因此在对应的Q值，有：SMC=LMC</p>
+</blockquote>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot5pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>规模经济的实质就是成本不断降低的经济。</p>
+<h3 id="%E6%94%B6%E7%9B%8A%E4%B8%8E%E5%88%A9%E6%B6%A6%E5%88%86%E6%9E%901">收益与利润分析（1）</h3>
+<p>总收益$\quad TR=P\cdot Q$</p>
+<p>平均收益$\quad AR=\frac{TR}{Q}=\frac{P\cdot Q}{Q}=P$</p>
+<p>边际收益$\quad MR=\frac{\Delta TR}{\Delta Q}$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot6pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot6pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<h3 id="%E6%94%B6%E7%9B%8A%E4%B8%8E%E5%88%A9%E6%B6%A6%E5%88%86%E6%9E%902">收益与利润分析（2）</h3>
+<p>利润$\quad \pi =TR-TC$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="6dot6pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<blockquote>
+<p>利润最大化的条件是边际收益等于边际成本</p>
+</blockquote>
+<h3 id="71-%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%81%87%E8%AE%BE%E6%9D%A1%E4%BB%B6">7.1 完全竞争的四个假设条件</h3>
+<p>四种市场：$\quad$完全竞争$\quad$完全垄断$\quad$垄断竞争$\quad$寡头垄断</p>
+<p>完全竞争的条件：</p>
+<ul>
+<li>大数假定
+<ul>
+<li>有无数多生产者和消费者</li>
+<li>完全竞争厂商没有定价权</li>
+</ul>
+</li>
+<li>产品同质性
+<ul>
+<li>所有同名产品都是一样的</li>
+<li>厂商没有必要做广告</li>
+</ul>
+</li>
+<li>信息完备性
+<ul>
+<li>信息是公开、免费的，人们无所不知</li>
+<li>不会出现假冒伪劣等现象</li>
+</ul>
+</li>
+<li>资源完全流动性
+<ul>
+<li>生产者想生产什么就生产什么</li>
+<li>人（资源）想干什么工作就干什么工作</li>
+<li>人口自由流动</li>
+<li>意味着资源可以达到最佳配置</li>
+</ul>
+</li>
+</ul>
+<p>接近于完全竞争市场的：</p>
+<p>证券市场 $\qquad$ 农产品市场</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="7dot1pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<h3 id="%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%8E%82%E5%95%86%E7%9A%84%E7%9F%AD%E6%9C%9F%E5%9D%87%E8%A1%A1">完全竞争厂商的短期均衡</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="7dot2pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<blockquote>
+<p>注意：这里的利润是<strong>经济利润</strong>，只能说赚的钱比正常的利润要少。</p>
+</blockquote>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="7dot2pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">注意这里的小于号，它的记法是出于经济学的习惯而非数学</div>
+</center>
+<blockquote>
+<p>P=AVC，停产点</p>
+</blockquote>
+<h3 id="%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E7%9A%84%E9%95%BF%E6%9C%9F%E5%9D%87%E8%A1%A1">完全竞争的长期均衡</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="7dot3pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>完全竞争厂商的长期均衡条件：</p>
+<p>$$MR=SMC=LMC=SAC=LAC$$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="7dot3pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>长期均衡是在最佳规模下的最佳产量，是一个行业长期均衡的达到的结果。</p>
+<p>当个别厂商均衡的时候，行业未必均衡。当行业均衡的时候，整个厂商都均衡了。</p>
+<h3 id="81-%E5%AE%8C%E5%85%A8%E5%9E%84%E6%96%AD%E5%B8%82%E5%9C%BA%E7%9A%84%E6%9D%A1%E4%BB%B6">8.1 完全垄断市场的条件</h3>
+<p>三个条件：</p>
+<ol>
+<li>只有一个厂商</li>
+<li>无很近的替代品</li>
+<li><strong>其他厂商无法进入</strong>（最重要）
+<ul>
+<li>政府特许</li>
+<li>材料垄断</li>
+<li>技术垄断</li>
+<li>不当竞争</li>
+</ul>
+</li>
+</ol>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="8dot1pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<h3 id="%E5%AE%8C%E5%85%A8%E5%9E%84%E6%96%AD%E5%8E%82%E5%95%86%E7%9A%84%E7%9F%AD%E6%9C%9F%E5%86%B3%E7%AD%96">完全垄断厂商的短期决策</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="8dot2pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">定价</div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="8dot2pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="8dot2pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">少数情况</div>
+</center>
+<p>少数情况的应对方法：降低成本、刺激消费</p>
+<h3 id="%E5%AE%8C%E5%85%A8%E5%9E%84%E6%96%AD%E5%8E%82%E5%95%86%E7%9A%84%E9%95%BF%E6%9C%9F%E5%86%B3%E7%AD%96">完全垄断厂商的长期决策</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="8dot3pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<h3 id="%E5%AE%8C%E5%85%A8%E5%9E%84%E6%96%AD%E5%8E%82%E5%95%86%E7%9A%84%E4%BB%B7%E6%A0%BC%E6%AD%A7%E8%A7%86">完全垄断厂商的价格歧视</h3>
+<p><strong>一级价格歧视</strong></p>
+<ul>
+<li>需求者少</li>
+<li>十分了解消费者的支付能力</li>
+<li>两次、多次收费现象</li>
+</ul>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="8dot4pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">一级价格歧视</div>
+</center>
+<p><strong>二级价格歧视</strong>（一部分一部分地单独定价）</p>
+<ul>
+<li>例如：邮政计费、电话计费</li>
+</ul>
+<p><strong>三级价格歧视</strong>（同一个产品在不同的市场上制定不同的价格）</p>
+<p>条件：</p>
+<ul>
+<li>市场之间是分割的</li>
+<li>消费者的需求不同</li>
+</ul>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="8dot4pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<h3 id="91-%E5%9E%84%E6%96%AD%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA%E7%9A%84%E6%9D%A1%E4%BB%B6">9.1 垄断竞争市场的条件</h3>
+<p>三个条件：</p>
+<ol>
+<li>有很多厂商</li>
+<li><strong>有很近的替代品</strong> $\rightarrow$ 产品是有差别的</li>
+<li>其他厂商自由进出</li>
+</ol>
+<p>整体产品的三个层次：</p>
+<ul>
+<li>产品的核心（功能）</li>
+<li>产品的实体</li>
+<li>产品的附加服务</li>
+</ul>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="9dot1pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>垄断竞争市场竞争特别激烈</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="9dot1pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">按d决策</div>
+</center>
+<h3 id="%E5%9E%84%E6%96%AD%E7%AB%9E%E4%BA%89%E5%8E%82%E5%95%86%E7%9A%84%E7%9F%AD%E6%9C%9F%E5%86%B3%E7%AD%96">垄断竞争厂商的短期决策</h3>
+<p>垄断竞争厂商达到短期决策均衡满足的条件：</p>
+<ol>
+<li>MR=MC</li>
+<li>在MR=MC决定的产量上D与d相交</li>
+</ol>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="9dot2pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="9dot2pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">上面被挡掉的一张图</div>
+</center>
+<p>垄断竞争厂商在短期之内，不管怎样调，在市场里的份额没有增加。</p>
+<h3 id="%E5%9E%84%E6%96%AD%E7%AB%9E%E4%BA%89%E5%8E%82%E5%95%86%E7%9A%84%E9%95%BF%E6%9C%9F%E5%86%B3%E7%AD%96">垄断竞争厂商的长期决策</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="9dot3pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="9dot3pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>垄断竞争长期决策的条件：</p>
+<ol>
+<li>MR=SMC=LMC</li>
+<li>在MR=SMC=LMC决定的产量水平上，d线与LAC相切</li>
+<li>D过d与LAC的切点</li>
+</ol>
+<p>短期决策$\rightarrow$预期变化$\qquad$长期决策$\rightarrow$份额变化</p>
+<blockquote>
+<p>完全竞争价格最低产量最高
+完全垄断价格最高产量最低
+垄断竞争居于中间</p>
+</blockquote>
+<h3 id="101-%E5%8F%A4%E8%AF%BA%E6%A8%A1%E5%9E%8B">10.1 古诺模型</h3>
+<p>寡头垄断市场：只有少数几个大的厂商垄断着市场</p>
+<p>特点：</p>
+<ul>
+<li>只有少数大厂商</li>
+<li>厂商间相互影响</li>
+<li>达成协议</li>
+<li>价格相当稳定</li>
+</ul>
+<p>寡头垄断市场举例：$\quad$ 钢铁公司、化工集团</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="10dot1pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>古诺模型的意义：说明寡头之间是相互影响的</p>
+<p><strong>推论：</strong> 如果有$n$个寡头，每一个寡头的产量为$Q_i= \frac{1}{n+1}\cdot Q_0$</p>
+<h3 id="%E6%96%AF%E5%A8%81%E9%BD%90%E6%A8%A1%E5%9E%8B">斯威齐模型</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="10dot2pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">寡头市场价格相对稳定</div>
+</center>
+<p>斯威齐模型认为，寡头垄断的需求曲线<strong>有折弯</strong></p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="10dot2pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>寡头垄断市场中，寡头的规模也不是完全相等</p>
+<h3 id="%E4%BB%B7%E6%A0%BC%E9%A2%86%E8%A2%96%E5%88%B6">价格领袖制</h3>
+<p>目的：确定价格、维护价格稳定</p>
+<p>充当价格领袖的条件：</p>
+<ul>
+<li>成本低的企业</li>
+<li>规模大的寡头</li>
+</ul>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="10dot3pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">大寡头的决策</div>
+</center>
+<h3 id="%E5%9B%9A%E5%BE%92%E5%9B%B0%E5%A2%83">囚徒困境</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="10dot4pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p><strong>卡特尔（cartel）：</strong> 生产者之间的价格和产量协议</p>
+<p>卡特尔本身是个囚徒博弈的问题。</p>
+<h3 id="%E6%99%BA%E7%8C%AA%E5%8D%9A%E5%BC%88">智猪博弈</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="10dot5pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>博弈矩阵：</p>
+<!--网上找资料缝了一个表格，可能会有细节上的错误qwq-->
+<style type="text/css">
+.mytable{
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+}
+</style>
+<table class="mytable">
+<th class="row-0" style="150px;height:50px;" >
+    <div class="biaotou">
+         <div class="biaotoutxt1">小猪策略</div>
+         <div class="biaotoutxt2">大猪策略</div>
+    </div> 
+</th> 
+<style>
+    .biaotou {  
+        line-height: 5px;
+        text-align: left;
+    }
+    .biaotoutxt1 {
+        color: #FFFFF;
+        padding: 1px 0 0 65px;
+    }
+    .biaotoutxt2 {
+        color: #FFFFF;
+        padding: 15px 0 0 5px;
+    }
+</style>
+<th>按</th>
+<th>不按</th>
+<tr>
+<th>按</th>
+<th>大=+3<br>小=+1</th>
+<th>大=+2<br>小=+4</th>
+</tr>
+<tr>
+<th>不按</th>
+<th>大=+7<br>小=-1</th>
+<th>大=0<br>小=0</th>
+</tr>
+</table>
+<br>
+<p><strong>剔除最劣决策法</strong>，最后结果：大猪按，小猪不按</p>
+<blockquote>
+<p>寡头之间是相互影响的，决策是相互依赖的</p>
+</blockquote>
+<h3 id="111-%E7%94%9F%E4%BA%A7%E8%A6%81%E7%B4%A0%E5%B8%82%E5%9C%BA%E8%AE%A4%E7%9F%A5">11.1 生产要素市场认知</h3>
+<p>生产者使用要素的原则：利润最大化</p>
+<p>产品市场：</p>
+<p>$$MR=MC$$</p>
+<p>$$MP_L\cdot MR=MC\cdot MP_L$$</p>
+<p>$$\frac{\Delta Q}{\Delta L}\cdot \frac{\Delta TR}{\Delta Q}=\frac{\Delta TC}{\Delta Q} \cdot \frac{\Delta Q}{\Delta L}$$</p>
+<p>$$\frac{\Delta TR}{\Delta L}=\frac{\Delta TC}{\Delta L}$$</p>
+<p>$$\Downarrow$$</p>
+<p>$$MRP_L=MFC_L$$</p>
+<p>$notion\quad$边际收益产品（$MRP_L$） $Marginal$ $Rvenue$ $Product$</p>
+<p>$notion\quad$边际要素成本（$MFC_L$） $Marginal$ $Factor$ $Cost$</p>
+<p>生产当中<strong>使用要素的原则</strong>：$MRP_L=MFC_L$</p>
+<p>在完全竞争的要素市场上，工资是一个常数。$MFC_L=W_0(工资)$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot1pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">劳动量是工资的函数</div>
+</center>
+<blockquote>
+<p>图形解释：在上图中，因为边际收益产品和工资的单位相同，所以可以一起放在纵轴。边际收益产品先增后减，可以由其含义推得。</p>
+</blockquote>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot1pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">粗线部分是劳动的需求曲线</div>
+</center>
+<blockquote>
+<p>解释：上图中的W0,W1,W2可以理解为不同的薪资水平。如果一个企业（or whatever...）的工资水平高，<strong>那就应该</strong>少雇人。在视频中，是以劳动为例来讲的，如果<strong>把横轴变成资本，纵轴变成利息，就形成了资本的需求曲线</strong>；如果<strong>把横轴变成土地，纵轴变成土地价格，就是土地的需求曲线</strong>。</p>
+</blockquote>
+<p>AFC：平均要素成本</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot1pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot1pic4.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot1pic5.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">粗线部分是要素的供给曲线</div>
+</center>
+<h3 id="%E5%B7%A5%E8%B5%84%E7%9A%84%E5%86%B3%E5%AE%9A">工资的决定</h3>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot2pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>替代效应：$W_\uparrow \rightarrow L_\uparrow$</p>
+<p>收入效应：$W_\uparrow \rightarrow L_\downarrow$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot2pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>提高工资水平的策略：</p>
+<ol>
+<li>需求：
+<ul>
+<li>提高生产率</li>
+<li>支持涨价</li>
+<li>贸易保护</li>
+</ul>
+</li>
+<li>供给：（减少供给）
+<ul>
+<li>对移民的限制</li>
+<li>最长工作时间立法</li>
+<li>规定工作的年龄</li>
+<li>禁止使用童工</li>
+<li>强制退休</li>
+<li>制定最低工资法</li>
+</ul>
+</li>
+</ol>
+<h3 id="%E5%88%A9%E6%81%AF%E7%9A%84%E5%86%B3%E5%AE%9A%E4%B8%8E%E5%8F%98%E5%8A%A8">利息的决定与变动</h3>
+<p>$notion\quad$迂回生产论</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot3pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>宽松政策：供给增加，利率下调</p>
+<p>紧缩政策：供给减少，利率上调</p>
+<h3 id="%E5%9C%B0%E7%A7%9F%E7%9A%84%E5%86%B3%E5%AE%9A">地租的决定</h3>
+<p>$$土地价格=\frac{地租(或土地的收入)}{(银行)利率}$$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot4pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>准地租（经济地租）：固定资产在短期内获得的报酬</p>
+<p>$$
+\begin{alignedat}{2}
+准地租&amp;=固定成本+经济利润 \
+&amp;= \pi +TFC \
+\end{alignedat}
+$$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot4pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot4pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>$$
+\begin{aligned}
+\int_{0}^{Q_0}(P_0-MC),{\rm d}Q &amp;= \int_{0}^{Q_0}P_0,{\rm d}Q-\int_{0}^{Q_0}MC,{\rm d}Q \
+&amp;= \int_{0}^{Q_0}P_0,{\rm d}Q-(TC-TFC) \
+&amp;= (\int_{0}^{Q_0}P_0,{\rm d}Q-TC)+TFC \
+&amp;= (TR-AVC\cdot Q_0)+TFC\
+&amp;= \pi +TFC
+\end{aligned}
+$$</p>
+<p>$$生产者剩余=\pi +TFC$$</p>
+<p>寻租行为</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="11dot4pic4.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<h3 id="121-%E7%A4%BE%E4%BC%9A%E7%A6%8F%E5%88%A9%E5%8F%8A%E5%85%B6%E8%A1%A1%E9%87%8F">12.1 社会福利及其衡量</h3>
+<p><strong>个人福利</strong>是人们的欲望和需要所得到的满足。</p>
+<p><strong>社会福利</strong>是个人福利的总和。</p>
+<p><strong>经济福利</strong>是可以直接或间接用货币衡量的社会福利；<strong>非经济福利</strong>是不能用货币衡量的社会福利。</p>
+<p>对社会福利的研究属于<strong>规范性</strong>的研究。</p>
+<p><strong>帕累托效率</strong>指的是这样一种情况：这时经济已不可能通过改变资源配置，在其他人（至少1人）的效用水平至少不降的情况下，使任何别人（至少1人）的效用水平有所提高。</p>
+<p>$$帕累托无效率 \stackrel{帕累托改进}{\longrightarrow}帕累托效率$$</p>
+<p>表现：</p>
+<ol>
+<li>交换的帕累托效率</li>
+<li>生产的帕累托效率</li>
+<li>交换与生产的帕累托效率</li>
+</ol>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="12dot1pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">交换的帕累托效率</div>
+</center>
+<blockquote>
+<p>解释：A的$MRS_{xy}$大于B，意味着在资源有限的前提下，应当根据贪心的策略将X优先配给A，将Y配给B。由边际效用的规律知，A和B两者的$MRS$值最终会趋于相等。这就是帕累托改进的过程在数值上的表现。</p>
+</blockquote>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="12dot1pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">生产的帕累托效率</div>
+</center>
+<p>$MRT_{xy}$：边际产品转化率</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="12dot1pic3.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">MRT即是此图中的替代率</div>
+</center>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="12dot1pic4.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">生产与交换的帕累托效率</div>
+</center>
+<blockquote>
+<p>当$MRS_{xy}=MRT_{xy}$时，社会出清。</p>
+</blockquote>
+<h3 id="%E6%94%B6%E5%85%A5%E5%88%86%E9%85%8D%E5%85%AC%E5%B9%B3%E7%A8%8B%E5%BA%A6%E7%9A%84%E8%A1%A1%E9%87%8F">收入分配公平程度的衡量</h3>
+<p>洛伦茨曲线</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="12dot2pic1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<p>$$基尼系数=\frac{A}{A+B}$$</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="12dot2pic2.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;"></div>
+</center>
+<ul>
+<li>基尼系数在0.3以下，平均状态</li>
+<li>0.3-0.4，合理状态</li>
+<li>大于0.4，收入差距过大</li>
+<li>大于0.6，暴发户和赤贫阶层同时出现</li>
+</ul>
+<h3 id="%E5%A4%96%E9%83%A8%E6%80%A7%E5%8F%8A%E5%85%B6%E5%BD%B1%E5%93%8D">外部性及其影响</h3>
+<p>消费的外部性：</p>
+<ul>
+<li>正外部性：消费者的消费为其他消费者带来的利益</li>
+<li>负外部性：消费者为其他消费者带来的损害</li>
+</ul>
+<p>生产的外部性：</p>
+<ul>
+<li>正外部性：（例如）养蜜蜂、行业经济</li>
+<li>负外部性：（例如）环境污染</li>
+</ul>
+<blockquote>
+<p>解决生产的负外部性：明确产权、 . . .</p>
+</blockquote>
+<h3 id="%E4%BF%A1%E6%81%AF%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%80%A7">信息不完全性</h3>
+<p>次品市场和逆向选择$\quad$错误选择（逆向选择）</p>
+<p>信息不对称的情况下，可能产生道德风险。</p>
+<blockquote>
+<p>在市场经济当中，存在市场的失灵。</p>
+</blockquote>
+<h2 id="%E7%BB%93%E8%AF%AD">结语</h2>
+<p>祝大家考试稳过，生活愉（$y\grave{u}$）快，阖家欢乐（$l\grave{u}o$）！</p>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="YanFei.jpeg">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">take care of yourself and be well !</div>
+</center>
+<p>$$\mathcal{THE}\quad \mathcal{END}$$</p>
+
+</body>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+
+</html>
